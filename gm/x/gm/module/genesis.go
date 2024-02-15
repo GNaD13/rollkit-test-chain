@@ -2,6 +2,7 @@ package gm
 
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
+
 	"gm/x/gm/keeper"
 	"gm/x/gm/types"
 )
@@ -12,7 +13,7 @@ func InitGenesis(ctx sdk.Context, k keeper.Keeper, genState types.GenesisState) 
 	k.SetParams(ctx, genState.Params)
 }
 
-// ExportGenesis returns the module's exported genesis
+// ExportGenesis returns the module's exported genesis.
 func ExportGenesis(ctx sdk.Context, k keeper.Keeper) *types.GenesisState {
 	genesis := types.DefaultGenesis()
 	genesis.Params = k.GetParams(ctx)
